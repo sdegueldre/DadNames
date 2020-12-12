@@ -3,7 +3,7 @@
 // Commands: https://script.google.com/macros/s/AKfycbyPHaH9XC5na8ohNS-goRkgmyEkjGhKQzgHYURdK4UFdyMU_II/exec?command=guessName&args=%5B%22Neil%22%5D
 
 const output = ContentService.createTextOutput.bind(ContentService);
-const CHARACTER_LIMIT = 510;
+const CHARACTER_LIMIT = 400;
 
 function doGet(request) {
     const command = request.parameter.command;
