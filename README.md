@@ -19,7 +19,7 @@ go to your bot commands in stream elements, and create a new custom command. Thi
 ### add guess command
 choose a name for the command, then inside of the "response" field, write the following:
 ```
-${<google app url>?command=guessName&args=%5B%22${queryescape ${1:}}%22%5D}
+${customapi.<google app url>?command=guessName&args=%5B%22${queryescape ${1:}}%22%5D}
 ```
 make sure to set the proper permissions for this command (broadcaster/moderators). Currently, this command is case sensitive, so make sure to always guess names with proper capitalization to avoid duplicates.
 
