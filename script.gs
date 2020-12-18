@@ -41,7 +41,7 @@ function getNames(sheet) {
 }
 
 function makePage(names, pageNum) {
-    const nextPageMsg = `"!guessedNames ${pageNum + 1}" for more`;
+    const nextPageMsg = `"!showguesses ${pageNum + 2}" for more`;
     let page = `${names.slice(0, -1).join(', ')} and ${names.slice(-1)[0]}`;
     if (page.length <= CHARACTER_LIMIT) {
         return [names.length, page];
