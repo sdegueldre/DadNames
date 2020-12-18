@@ -13,6 +13,7 @@ function doGet(request) {
 
 const commands = {
     guessName(sheet, guessedName) {
+        guessedName = normalizeName(guessedName);
         const alreadyGuessedNames = new Set(getNames(sheet));
         if (alreadyGuessedNames.has(guessedName)) {
             return output(`${guessedName} has already been guessed.`);
@@ -36,7 +37,7 @@ const commands = {
 }
 
 function getNames(sheet) {
-    return sheet.getDataRange().getValues().map(row => row[0])
+    return sheet.getDataRange().getValues().map(row => normalizeName(row[0]))
 }
 
 function makePage(names, pageNum) {
@@ -50,4 +51,8 @@ function makePage(names, pageNum) {
     }).reverse();
     const lastName = possiblePages.findIndex(page => page.length <= CHARACTER_LIMIT);
     return [possiblePages.length - lastName, possiblePages[lastName]];
+}
+
+function normalizeName(name) {
+    return name[0].toUpperCase() + name.substring(1).toLowerCase();
 }
